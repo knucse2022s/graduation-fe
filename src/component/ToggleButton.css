@@ -1,0 +1,28 @@
+.toggle-container {
+  width: 60px;
+  height: 30px;
+  background: #ddd;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.toggle-container:hover {
+  background: #ccc;
+}
+
+.toggle-button {
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+}
+
+.toggle-button.checked {
+  transform: translateX(30px);
+  background: #C40000;
+}

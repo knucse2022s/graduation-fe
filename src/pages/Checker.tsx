@@ -1,0 +1,186 @@
+import { useLocation } from "react-router-dom";
+import type { mustBeCourse, normalCourse, Counsel,AttendSummary } from "../component/types";
+import { useState } from "react";
+import "./design/Checker.css";
+import { useNavigate } from "react-router-dom";
+import {calcCredits} from "../component/calcCredit";
+import Modal  from "./design/Modal";
+import Show from "./Show";
+
+function Checker() {
+  const { state } = useLocation();
+
+  const student = state.student;
+  const mustBe = state.mustBeCourses;
+  const normal = state.normalCourses;
+  const beforeCounsel = state.Counsel;
+
+  const [mustBeState, setMustBeState] = useState<mustBeCourse[]>(mustBe);
+  const [normalState, setNormalState] = useState<normalCourse[]>(normal);
+  const [counsel, setCounsel] = useState<Counsel>(beforeCounsel);
+
+  const [summary, setSummary] = useState<AttendSummary>();
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
+  const mustbeToggleCheck = (id: number) => {
+    setMustBeState(prev =>
+      prev.map(c =>
+        c.id === id
+          ? { ...c, status: c.status === "기이수" ? "이수예정" : "기이수" }
+          : c
+      )
+    );
+  };
+
+  const normalToggleCheck = (id: number, newCredit: number) => {
+    setNormalState(prev =>
+      prev.map(c => (c.id === id ? { ...c, credit: newCredit } : c))
+    );
+  };
+
+  const updateToggle = (id: number, newTimes: number) => {
+    setCounsel(prev => (prev.id === id ? { ...prev, times: newTimes } : prev));
+  };
+
+
+  const handleConfirm = () => {
+    const payload = calcCredits(mustBeState, normalState, counsel, student.studentId, student.Major);
+    setSummary(payload);
+    setOpenModal(true);
+  };
+
+
+  const terms = [
+    "1-1",
+    "1-2",
+    "2-1",
+    "2-2",
+    "3-1",
+    "3-2",
+    "4-1",
+    "4-2",
+    "이수 계절",
+    "이수예정 계절"
+  ];
+
+  return (
+    <div className="checker-page" >
+      <div className="checker-container">
+        <div className="save-btn-wrapper">
+          <button className="save-btn">저장</button>
+        </div>
+        <h2 className="main-title">{student.name} / {student.studentId}</h2>
+        <h3 className="sub-title">전공: {student.major}</h3>
+
+        {/* 필수과목 */}
+        <h2 className="section-title">필수 과목</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>체크</th>
+              <th>과목명</th>
+              <th>이수학점</th>
+              <th>상태</th>
+            </tr>
+          </thead>
+          <tbody>
+            {mustBeState.map(c => (
+              <tr key={c.id}>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={c.status === "기이수"}
+                    onChange={() => mustbeToggleCheck(c.id)}
+                  />
+                </td>
+                <td>{c.majorName}</td>
+                <td>{c.credit}</td>
+                <td>{c.status}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {/* 일반과목 */}
+        
+        <h2 className="section-title" style={{ marginTop: "40px" }}>
+          일반 과목
+        </h2>
+        <p>※필수과목을 포함해 학점 기입 바람</p>
+
+        <div className="normal-grid" >
+          {terms.map((term, idx) => (
+            <div
+              key={`term-${idx}`}
+              className={`term-box ${idx === terms.length - 1 ? "last-term" : ""}`}
+            >
+              <h3 >{term} 학기</h3>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>구분</th>
+                    <th>학점</th>
+                    <th>상태</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {normalState
+                    .filter(c => c.term === term)
+                    .map(c => (
+                      <tr key={c.id}>
+                        <td>{c.major}</td>
+                        <td>
+                          <select
+                            value={c.credit}
+                            onChange={e =>
+                              normalToggleCheck(c.id, Number(e.target.value))
+                            }
+                          >
+                            {Array.from({ length: 50 }, (_, i) => i).map(num => (
+                              <option key={num} value={num}>
+                                {num}
+                              </option>
+                            ))}
+                          </select>
+                        </td>
+                        <td>{c.status}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          ))}
+        </div>
+
+        {/* 상담 */}
+        <h2 className="section-title">교수 상담 횟수</h2>
+
+        <div style={{ textAlign: "center", marginTop: "15px" }}>
+          <select
+            value={counsel.times}
+            onChange={e =>
+              updateToggle(counsel.id, Number(e.target.value))
+            }
+          >
+            {Array.from({ length: 9 }, (_, i) => i).map(num => (
+              <option key={num} value={num}>
+                {num}
+              </option>
+            ))}
+          </select>
+        </div>
+        
+        <button className="checker-confirm-btn" onClick={handleConfirm}>
+          확인
+        </button>
+      </div>
+      {openModal && (
+        <Modal onClose={() => setOpenModal(false)}>
+          <Show data={summary} />
+        </Modal>
+      )}
+    </div>
+  );
+}
+
+export default Checker;
