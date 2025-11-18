@@ -5,7 +5,10 @@
     "useDefineForClassFields": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
+<<<<<<< HEAD
     "types": ["vite/client"],
+=======
+>>>>>>> f2ce451a19c9dd3e020a8e8ed733fc50a6ec5795
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -24,5 +27,9 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
+<<<<<<< HEAD
   "include": ["src", "src/component/types.tsx"]
+=======
+  "include": ["src"]
+>>>>>>> f2ce451a19c9dd3e020a8e8ed733fc50a6ec5795
 }
