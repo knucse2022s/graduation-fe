@@ -8,12 +8,12 @@ export function calcCredits(mustBe: mustBeCourse[], normal : normalCourse[], cou
     const attendMust3 = mustBe.filter(c => c.status === "기이수" && c.major === "교양");
     const notAttendMust3 = mustBe.filter(c => c.status === "이수예정" && c.major === "교양");
 
-    const attendnormal1 = mustBe.filter(c => c.status === "기이수" && c.major === "공학전공");
-    const notAttendnormal1 = mustBe.filter(c => c.status === "이수예정" && c.major === "공학전공");
-    const attendnormal2 = mustBe.filter(c => c.status === "기이수" && c.major === "전공기반");
-    const notAttendnormal2 = mustBe.filter(c => c.status === "이수예정" && c.major === "전공기반");
-    const attendnormal3 = mustBe.filter(c => c.status === "기이수" && c.major === "교양");
-    const notAttendnormal3 = mustBe.filter(c => c.status === "이수예정" && c.major === "교양");
+    const attendnormal1 = normal.filter(c => c.status === "기이수" && c.major === "공학전공");
+    const notAttendnormal1 = normal.filter(c => c.status === "이수예정" && c.major === "공학전공");
+    const attendnormal2 = normal.filter(c => c.status === "기이수" && c.major === "전공기반");
+    const notAttendnormal2 = normal.filter(c => c.status === "이수예정" && c.major === "전공기반");
+    const attendnormal3 = normal.filter(c => c.status === "기이수" && c.major === "교양");
+    const notAttendnormal3 = normal.filter(c => c.status === "이수예정" && c.major === "교양");
 
     const sum = (arr: Array<{credit : number}>) => (arr.reduce((acc, cur) => acc + cur.credit, 0));
 

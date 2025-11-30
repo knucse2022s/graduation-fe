@@ -8,43 +8,42 @@ interface PieChartComProps {
 }
 
 export default function PieChartCom({ value, category, isattend }: PieChartComProps) {
+  const COLORS = ["#E0E0E0", "#4CAF50"];
 
-  const COLORS = ["#E0E0E0","#4CAF50"];
-
-  let total : number = 0;
-  let attend : number = 0;
+  let total = 0;
+  let completed = 0;
+  let planned = 0;
 
   if (category === "major") {
     total = value.totalMajor;
-    attend = isattend
-      ? value.attendMajor // 현재 이수
-      : value.attendMajor + value.notAttendMajor; // 미래(이수 + 예정)
-  }
-  else if (category === "base") {
+    completed = value.attendMajor;
+    planned = value.notAttendMajor;
+  } else if (category === "base") {
     total = value.totalBase;
-    attend = isattend
-      ? value.attendBase
-      : value.attendBase + value.notAttendBase;
-  }
-  else if (category === "general") {
+    completed = value.attendBase;
+    planned = value.notAttendBase;
+  } else if (category === "general") {
     total = value.totalGeneral;
-    attend = isattend
-      ? value.attendGeneral
-      : value.attendGeneral + value.notAttendGeneral;
-  }
-  else if (category === "counsel") {
+    completed = value.attendGeneral;
+    planned = value.notAttendGeneral;
+  } else if (category === "counsel") {
     total = 8;
-    attend = value.times;
+    completed = value.times;
+    planned = 0;
   }
 
-  const notAttend = total - attend;
+  const displayCompleted = Math.min(
+    total,
+    isattend ? completed + planned : completed
+  );
+  const remaining = Math.max(total - displayCompleted, 0);
 
   const data = [
-    { name: "총", value: attend },
-    { name: "현재", value: notAttend < 0 ? 0 : notAttend },
+    { name: "이수", value: displayCompleted },
+    { name: "남음", value: remaining },
   ];
-  
-  const ret : string = isattend ? "미래" : "현재";
+
+  const remainderLabel = isattend ? "미래" : "현재";
 
   return (
     <div className="pie-row">
@@ -67,9 +66,9 @@ export default function PieChartCom({ value, category, isattend }: PieChartComPr
             </PieChart>
         </div>
     
-    <div className="text-box">
+      <div className="text-box">
         <p>총: {total}</p>
-        <p>{ret} : {notAttend}</p>
+        <p>{remainderLabel}: {remaining}</p>
       </div>
     </div>
   );

@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "my-react-app",
-=======
   "name": "graduation-fe",
->>>>>>> f2ce451a19c9dd3e020a8e8ed733fc50a6ec5795
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -14,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.9.6",
@@ -33,22 +28,5 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.3",
     "vite": "^7.2.2"
-=======
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.33.0",
-    "@types/react": "^19.1.10",
-    "@types/react-dom": "^19.1.7",
-    "@vitejs/plugin-react": "^5.0.0",
-    "eslint": "^9.33.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.3.0",
-    "typescript": "~5.8.3",
-    "typescript-eslint": "^8.39.1",
-    "vite": "^7.1.2"
->>>>>>> f2ce451a19c9dd3e020a8e8ed733fc50a6ec5795
   }
 }

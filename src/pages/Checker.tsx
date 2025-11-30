@@ -2,7 +2,6 @@ import { useLocation } from "react-router-dom";
 import type { mustBeCourse, normalCourse, Counsel,AttendSummary } from "../component/types";
 import { useState } from "react";
 import "./design/Checker.css";
-import { useNavigate } from "react-router-dom";
 import {calcCredits} from "../component/calcCredit";
 import Modal  from "./design/Modal";
 import Show from "./Show";
@@ -44,7 +43,7 @@ function Checker() {
 
 
   const handleConfirm = () => {
-    const payload = calcCredits(mustBeState, normalState, counsel, student.studentId, student.Major);
+    const payload = calcCredits(mustBeState, normalState, counsel, student.studentId, student.major);
     setSummary(payload);
     setOpenModal(true);
   };
