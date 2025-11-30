@@ -1,0 +1,209 @@
+.start-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+/* Header */
+.start-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.start-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.start-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-logo-image {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.start-university-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.start-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.start-nav-link {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.2s;
+}
+
+.start-nav-link:hover {
+  color: #c8102e;
+}
+
+.start-nav-button {
+  font-family: inherit;
+}
+
+.start-nav-divider {
+  color: #ccc;
+  margin: 0 0.25rem;
+}
+
+/* Main Content */
+.start-main {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.start-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.5)
+  );
+  border-radius: 8px;
+  margin: 2rem;
+}
+
+.start-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.start-go-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  background-color: #c8102e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.start-go-button:hover {
+  background-color: #a00d26;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.start-go-button:active {
+  transform: translateY(0);
+}
+
+.start-go-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Footer */
+.start-footer {
+  background-color: #8b0000;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.start-footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.start-footer-address {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.start-footer-contact {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.start-footer-copyright {
+  margin: 1rem 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.start-footer-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.start-footer-stats span {
+  padding: 0 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .start-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .start-title {
+    font-size: 1.8rem;
+  }
+
+  .start-go-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  .start-footer-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
