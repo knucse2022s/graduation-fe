@@ -1,6 +1,6 @@
 import type { mustBeCourse, normalCourse, Counsel } from '../component/types';
 
-const API_BASE_URL = 'http://192.168.55.225:8080';
+const API_BASE_URL = 'http://192.168.0.99:8080';
 
 interface JsonRequestOptions extends Omit<RequestInit, 'body'> {
   body?: unknown;
