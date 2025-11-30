@@ -20,7 +20,20 @@ function Login() {
     setIsLoading(true);
     setError(null);
     try {
-      await login({ studentId, password });
+      const loginResponse = await login({ studentId, password });
+      const accessToken =
+        loginResponse && typeof loginResponse.accessToken === "string"
+          ? loginResponse.accessToken
+          : null;
+
+      if (!accessToken) {
+        throw new Error("로그인 토큰을 받지 못했습니다.");
+      }
+
+      const normalizedToken = accessToken.trim();
+      console.log("[LOGIN] 발급받은 accessToken:", normalizedToken);
+      localStorage.setItem("accessToken", normalizedToken);
+
       const graduationData = await fetchMyGraduationData();
       navigate("/checker", { state: graduationData });
     } catch (err) {

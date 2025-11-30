@@ -53,6 +53,12 @@ export interface LoginPayload {
   password: string;
 }
 
+export interface LoginResponse {
+  accessToken: string;
+  refreshToken?: string;
+  [key: string]: unknown;
+}
+
 export interface SignupPayload extends LoginPayload {
   name: string;
   major: string;
@@ -82,8 +88,14 @@ export interface GraduationData {
   [key: string]: unknown;
 }
 
+function sanitizeToken(rawToken: string | null): string | null {
+  if (!rawToken) return null;
+  // Remove accidental surrounding quotes or whitespace.
+  return rawToken.replace(/^"+|"+$/g, '').trim();
+}
+
 export function login(payload: LoginPayload) {
-  return request(`/auth/login`, {
+  return request<LoginResponse>(`/auth/login`, {
     method: 'POST',
     body: payload,
   });
@@ -97,7 +109,15 @@ export function signup(payload: SignupPayload) {
 }
 
 export function fetchMyGraduationData() {
+  const storedToken = sanitizeToken(localStorage.getItem('accessToken'));
+  if (!storedToken) {
+    throw new Error('액세스 토큰이 없습니다. 다시 로그인해주세요.');
+  }
+
   return request<GraduationData>(`/graduation/my`, {
     method: 'GET',
+    headers: {
+      Authorization: `Bearer ${storedToken}`,
+    },
   });
 }
