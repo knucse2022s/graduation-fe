@@ -1,22 +1,66 @@
 import { useLocation } from "react-router-dom";
-import type { mustBeCourse, normalCourse, Counsel,AttendSummary } from "../component/types";
+import {
+  type mustBeCourse,
+  type normalCourse,
+  type Counsel,
+  type AttendSummary,
+  type AdditionalRequirements,
+  type AdditionalRequirementKey,
+} from "../component/types";
 import { useState } from "react";
 import "./design/Checker.css";
-import {calcCredits} from "../component/calcCredit";
-import Modal  from "./design/Modal";
+import { calcCredits } from "../component/calcCredit";
+import Modal from "./design/Modal";
 import Show from "./Show";
+import AdditionalRequirementsSection from "../component/AdditionalRequirements";
 
 function Checker() {
-  const { state } = useLocation();
+  const location = useLocation();
+  const state = location.state as typeof location.state & Record<string, any>;
+
+  if (!state || !state.student) {
+    return (
+      <div className="checker-page">
+        <div className="checker-container">
+          <p style={{ textAlign: "center", margin: "40px 0" }}>
+            졸업 데이터를 찾을 수 없습니다. 로그인 후 다시 시도해주세요.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   const student = state.student;
   const mustBe = state.mustBeCourses;
   const normal = state.normalCourses;
-  const beforeCounsel = state.Counsel;
+  const beforeCounsel: Counsel = state.Counsel ?? { id: -1, times: 0 };
+  const additionalRequirementsSource:
+    | Partial<AdditionalRequirements>
+    | undefined =
+    state.additionalRequirements ?? {
+      English: state.English,
+      SDGs: state.SDGs,
+      GraduationThesisAndCapstone: state.GraduationThesisAndCapstone,
+    };
 
   const [mustBeState, setMustBeState] = useState<mustBeCourse[]>(mustBe);
   const [normalState, setNormalState] = useState<normalCourse[]>(normal);
   const [counsel, setCounsel] = useState<Counsel>(beforeCounsel);
+  const buildAdditionalRequirements = (): AdditionalRequirements => {
+    const normalized = {} as AdditionalRequirements;
+    if (!additionalRequirementsSource) {
+      return normalized;
+    }
+    Object.entries(additionalRequirementsSource).forEach(([key, value]) => {
+      if (value) {
+        normalized[key as AdditionalRequirementKey] = value;
+      }
+    });
+    return normalized;
+  };
+
+  const [additionalRequirements, setAdditionalRequirements] =
+    useState<AdditionalRequirements>(buildAdditionalRequirements);
 
   const [summary, setSummary] = useState<AttendSummary>();
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -41,6 +85,16 @@ function Checker() {
     setCounsel(prev => (prev.id === id ? { ...prev, times: newTimes } : prev));
   };
 
+  const toggleAdditionalRequirement = (key: AdditionalRequirementKey) => {
+    setAdditionalRequirements(prev => {
+      const target = prev[key];
+      if (!target) return prev;
+      return {
+        ...prev,
+        [key]: { ...target, check: !target.check },
+      };
+    });
+  };
 
   const handleConfirm = () => {
     const payload = calcCredits(mustBeState, normalState, counsel, student.studentId, student.major);
@@ -168,6 +222,11 @@ function Checker() {
             ))}
           </select>
         </div>
+
+        <AdditionalRequirementsSection
+          requirements={additionalRequirements}
+          onToggle={toggleAdditionalRequirement}
+        />
         
         <button className="checker-confirm-btn" onClick={handleConfirm}>
           확인

@@ -1,0 +1,79 @@
+.additional-req-section {
+  margin-top: 48px;
+}
+
+.additional-req-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.additional-req-card {
+  border: 1px solid #dfe3eb;
+  border-radius: 12px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(19, 33, 68, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.additional-req-card.completed {
+  border-color: #81c995;
+}
+
+.additional-req-card.pending {
+  border-color: #f2c94c;
+}
+
+.additional-req-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.additional-req-card-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.additional-req-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #8692a6;
+}
+
+.additional-req-card.completed .additional-req-badge {
+  background-color: #2f9e44;
+}
+
+.additional-req-card.pending .additional-req-badge {
+  background-color: #f59f00;
+}
+
+.additional-req-description {
+  margin: 0;
+  color: #5b6273;
+  font-size: 0.9rem;
+}
+
+.additional-req-toggle {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6b8afd, #4f67db);
+  color: #fff;
+  transition: opacity 0.2s ease;
+}
+
+.additional-req-toggle:hover {
+  opacity: 0.9;
+}

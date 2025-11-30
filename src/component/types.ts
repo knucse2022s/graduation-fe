@@ -37,3 +37,20 @@ export interface AttendSummary {
   notAttendGeneral: number;
   times : number;
 }
+
+export interface AdditionalRequirement {
+  id: number;
+  check: boolean;
+}
+
+export interface AdditionalRequirements {
+  English?: AdditionalRequirement;
+  SDGs?: AdditionalRequirement;
+  GraduationThesisAndCapstone?: AdditionalRequirement;
+  [key: string]: AdditionalRequirement | undefined;
+}
+
+export type AdditionalRequirementKey =
+  | "English"
+  | "SDGs"
+  | "GraduationThesisAndCapstone";
