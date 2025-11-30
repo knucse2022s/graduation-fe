@@ -34,7 +34,7 @@ export default function PieChartCom({ value, category, isattend }: PieChartComPr
 
   const displayCompleted = Math.min(
     total,
-    isattend ? completed + planned : completed
+    isattend ? completed + completed : planned
   );
   const remaining = Math.max(total - displayCompleted, 0);
 

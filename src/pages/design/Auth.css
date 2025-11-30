@@ -1,0 +1,135 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f7f9fc 0%, #eef2f7 100%);
+  padding: 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-form label {
+  font-weight: 600;
+  color: #1e1e1e;
+}
+
+.auth-form textarea,
+.auth-form input {
+  width: 100%;
+  border: 1px solid #d6dbe1;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  resize: none;
+  font-family: inherit;
+}
+
+.auth-form textarea:focus,
+.auth-form input:focus {
+  outline: 2px solid #5b7bfa;
+}
+
+.auth-error {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: #ffeaea;
+  color: #b42318;
+  font-size: 0.9rem;
+}
+
+.auth-success {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: #e8f7ef;
+  color: #1b7a45;
+  font-size: 0.9rem;
+}
+
+.auth-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.auth-actions button {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #5b7bfa;
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.auth-actions button:hover {
+  background-color: #4a68d6;
+}
+
+.auth-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #8fa2ff;
+}
+
+.ghost-btn {
+  background-color: #edf0ff;
+  color: #5165ce;
+}
+
+.ghost-btn:hover {
+  background-color: #d9e1ff;
+}
+
+.major-selector {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.major-btn {
+  flex: 1;
+  border: 1px solid #d6dbe1;
+  background-color: #fafbff;
+  color: #3a3a3a;
+  padding: 10px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.major-btn.selected {
+  background-color: #5b7bfa;
+  border-color: #5b7bfa;
+  color: #fff;
+}
+
+.major-btn:hover {
+  border-color: #5b7bfa;
+}
+
+.major-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
