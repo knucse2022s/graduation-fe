@@ -3,6 +3,7 @@
 }
 
 :root {
+<<<<<<< HEAD
   font-family:
     system-ui,
     -apple-system,
@@ -15,16 +16,33 @@
   color: #333;
   background-color: #ffffff;
 
+=======
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #213547;
+  background-color: #ffffff;
+>>>>>>> 39bfff3640be3cbf6bc1e2c8db587ba61b6c2bc4
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+<<<<<<< HEAD
+=======
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+>>>>>>> 39bfff3640be3cbf6bc1e2c8db587ba61b6c2bc4
 body {
   margin: 0;
   min-height: 100vh;
 }
+<<<<<<< HEAD
 
 #root {
   min-height: 100vh;
@@ -62,3 +80,5 @@ button:focus-visible {
   outline: 2px solid #0066cc;
   outline-offset: 2px;
 }
+=======
+>>>>>>> 39bfff3640be3cbf6bc1e2c8db587ba61b6c2bc4

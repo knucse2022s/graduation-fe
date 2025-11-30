@@ -1,0 +1,18 @@
+.pie-row {
+  display: flex;
+  align-items: center;   /* 차트와 글자 수직 가운데 정렬 */
+  justify-content: center;
+  gap: 20px;             /* 차트 ↔ 글자 간격 */
+  margin: 20px 0;
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-box p {
+  margin: 4px 0;
+  font-size: 16px;
+}
