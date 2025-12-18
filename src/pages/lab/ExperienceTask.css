@@ -1,0 +1,490 @@
+.experience-task-page {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 2rem 0;
+}
+
+.experience-task-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* 헤더 */
+.experience-task-header {
+  margin-bottom: 2rem;
+}
+
+.experience-task-back {
+  background: none;
+  border: none;
+  color: #c8102e;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  transition: color 0.2s;
+}
+
+.experience-task-back:hover {
+  color: #a00d26;
+}
+
+.experience-task-title-section {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.experience-task-title-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.experience-task-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  flex: 1;
+}
+
+.experience-task-difficulty {
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.experience-task-meta {
+  display: flex;
+  gap: 1.5rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+.experience-task-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* 섹션 */
+.experience-task-section {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.experience-task-section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #c8102e;
+}
+
+.experience-task-description {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* 선수 지식 */
+.experience-task-prerequisites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.experience-task-prerequisite-tag {
+  background-color: #e8f4f8;
+  color: #2c5f7c;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* 단계별 가이드 */
+.experience-task-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience-task-step {
+  border: 2px solid #eee;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background-color: #fafafa;
+}
+
+.experience-task-step-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.experience-task-step-number {
+  width: 40px;
+  height: 40px;
+  background-color: #c8102e;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.experience-task-step-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  flex: 1;
+}
+
+.experience-task-step-time {
+  color: #666;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.experience-task-step-description {
+  color: #555;
+  line-height: 1.7;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.experience-task-total-time {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #eee;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #c8102e;
+}
+
+/* 참고 자료 */
+.experience-task-resources {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.experience-task-resource {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.25rem;
+  background-color: #fafafa;
+}
+
+.experience-task-resource-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.experience-task-resource-type {
+  background-color: #c8102e;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.experience-task-resource-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.experience-task-resource-description {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.experience-task-resource-link {
+  color: #c8102e;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.experience-task-resource-link:hover {
+  color: #a00d26;
+  text-decoration: underline;
+}
+
+/* 후속 활동 가이드 */
+.experience-task-next-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-task-next-step {
+  padding: 0.75rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #555;
+  line-height: 1.7;
+}
+
+.experience-task-next-step::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #c8102e;
+  font-weight: bold;
+}
+
+/* 체험 후기 */
+.experience-task-reviews-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.experience-task-review-btn {
+  padding: 0.5rem 1.25rem;
+  background-color: #c8102e;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.experience-task-review-btn:hover {
+  background-color: #a00d26;
+}
+
+/* 후기 작성 폼 */
+.experience-task-review-form {
+  background-color: #f9f9f9;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.experience-task-review-rating {
+  margin-bottom: 1rem;
+}
+
+.experience-task-review-rating label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.experience-task-review-stars {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.experience-task-review-star {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s;
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+.experience-task-review-star.active {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.experience-task-review-star:hover {
+  transform: scale(1.2);
+}
+
+.experience-task-review-rating-text {
+  margin-left: 0.5rem;
+  font-weight: 600;
+  color: #c8102e;
+}
+
+.experience-task-review-comment {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.experience-task-review-comment:focus {
+  outline: none;
+  border-color: #c8102e;
+}
+
+.experience-task-review-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.experience-task-review-submit {
+  padding: 0.75rem 1.5rem;
+  background-color: #c8102e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.experience-task-review-submit:hover:not(:disabled) {
+  background-color: #a00d26;
+}
+
+.experience-task-review-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 후기 목록 */
+.experience-task-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience-task-review {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background-color: #fafafa;
+}
+
+.experience-task-review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.experience-task-review-user {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.experience-task-review-user-id {
+  font-weight: 600;
+  color: #333;
+}
+
+.experience-task-review-rating-display {
+  font-size: 0.9rem;
+}
+
+.experience-task-review-date {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.experience-task-review-content {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.experience-task-review-helpful {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.experience-task-reviews-empty {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #999;
+  font-size: 1rem;
+}
+
+/* 로딩 및 에러 */
+.experience-task-loading,
+.experience-task-error {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.experience-task-error {
+  color: #d32f2f;
+}
+
+.experience-task-error button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #c8102e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.experience-task-error button:hover {
+  background-color: #a00d26;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .experience-task-title {
+    font-size: 1.5rem;
+  }
+
+  .experience-task-title-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .experience-task-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .experience-task-reviews-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+

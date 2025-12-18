@@ -5,6 +5,7 @@ import {
   type Counsel,
   type AttendSummary,
   type AdditionalRequirements,
+  type AdditionalRequirement,
   type AdditionalRequirementKey,
 } from "../component/types";
 import { useState } from "react";
@@ -16,35 +17,23 @@ import AdditionalRequirementsSection from "../component/AdditionalRequirements";
 
 function Checker() {
   const location = useLocation();
-  const state = location.state as typeof location.state & Record<string, any>;
+  const state = location.state as typeof location.state & Record<string, unknown>;
 
-  if (!state || !state.student) {
-    return (
-      <div className="checker-page">
-        <div className="checker-container">
-          <p style={{ textAlign: "center", margin: "40px 0" }}>
-            졸업 데이터를 찾을 수 없습니다. 로그인 후 다시 시도해주세요.
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  const student = state.student;
-  const mustBe = state.mustBeCourses;
-  const normal = state.normalCourses;
-  const beforeCounsel: Counsel = state.Counsel ?? { id: -1, times: 0 };
+  const student = state?.student;
+  const mustBe = state?.mustBeCourses as mustBeCourse[] | undefined;
+  const normal = state?.normalCourses as normalCourse[] | undefined;
+  const beforeCounsel: Counsel = (state?.Counsel as Counsel | undefined) ?? { id: -1, times: 0 };
   const additionalRequirementsSource:
     | Partial<AdditionalRequirements>
     | undefined =
-    state.additionalRequirements ?? {
-      English: state.English,
-      SDGs: state.SDGs,
-      GraduationThesisAndCapstone: state.GraduationThesisAndCapstone,
+    (state?.additionalRequirements as Partial<AdditionalRequirements> | undefined) ?? {
+      English: state?.English as AdditionalRequirement | undefined,
+      SDGs: state?.SDGs as AdditionalRequirement | undefined,
+      GraduationThesisAndCapstone: state?.GraduationThesisAndCapstone as AdditionalRequirement | undefined,
     };
 
-  const [mustBeState, setMustBeState] = useState<mustBeCourse[]>(mustBe);
-  const [normalState, setNormalState] = useState<normalCourse[]>(normal);
+  const [mustBeState, setMustBeState] = useState<mustBeCourse[]>(mustBe ?? []);
+  const [normalState, setNormalState] = useState<normalCourse[]>(normal ?? []);
   const [counsel, setCounsel] = useState<Counsel>(beforeCounsel);
   const buildAdditionalRequirements = (): AdditionalRequirements => {
     const normalized = {} as AdditionalRequirements;
@@ -62,8 +51,20 @@ function Checker() {
   const [additionalRequirements, setAdditionalRequirements] =
     useState<AdditionalRequirements>(buildAdditionalRequirements);
 
-  const [summary, setSummary] = useState<AttendSummary>();
+  const [summary, setSummary] = useState<AttendSummary | undefined>(undefined);
   const [openModal, setOpenModal] = useState<boolean>(false);
+
+  if (!state || !student) {
+    return (
+      <div className="checker-page">
+        <div className="checker-container">
+          <p style={{ textAlign: "center", margin: "40px 0" }}>
+            졸업 데이터를 찾을 수 없습니다. 로그인 후 다시 시도해주세요.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   const mustbeToggleCheck = (id: number) => {
     setMustBeState(prev =>

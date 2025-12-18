@@ -1,0 +1,556 @@
+.faculty-detail-page {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 2rem 0;
+}
+
+.faculty-detail-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* 헤더 */
+.faculty-detail-header {
+  margin-bottom: 2rem;
+}
+
+.faculty-detail-back {
+  background: none;
+  border: none;
+  color: #c8102e;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+}
+
+.faculty-detail-back:hover {
+  color: #a00d26;
+}
+
+/* 프로필 섹션 */
+.faculty-detail-profile {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.faculty-detail-image-section {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.faculty-detail-image {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faculty-detail-image-placeholder {
+  width: 300px;
+  height: 400px;
+  background: linear-gradient(135deg, #c8102e 0%, #a00d26 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 6rem;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faculty-detail-recruitment-badge {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.faculty-detail-recruitment-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+}
+
+.faculty-detail-recruitment-badge.recruiting .faculty-detail-recruitment-dot {
+  background-color: #4caf50;
+}
+
+.faculty-detail-recruitment-badge.not-recruiting .faculty-detail-recruitment-dot {
+  background-color: #f44336;
+}
+
+.faculty-detail-recruitment-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+}
+
+.faculty-detail-info {
+  flex: 1;
+}
+
+.faculty-detail-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.faculty-detail-title {
+  font-size: 1.3rem;
+  color: #666;
+  margin: 0 0 2rem 0;
+  font-weight: 500;
+}
+
+.faculty-detail-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.faculty-detail-contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.faculty-detail-contact-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.faculty-detail-contact-value {
+  font-size: 1.1rem;
+  color: #c8102e;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.faculty-detail-contact-value:hover {
+  color: #a00d26;
+  text-decoration: underline;
+}
+
+/* 섹션 */
+.faculty-detail-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.faculty-detail-section {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.faculty-detail-section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #c8102e;
+}
+
+.faculty-detail-section-content {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1rem;
+  margin: 0;
+  white-space: pre-line;
+}
+
+/* 교과목 섹션 */
+.faculty-detail-courses {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.faculty-detail-course-item {
+  padding: 1.25rem;
+  background-color: #f9f9f9;
+  border-left: 4px solid #c8102e;
+  border-radius: 8px;
+}
+
+.faculty-detail-course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  gap: 1rem;
+}
+
+.faculty-detail-course-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  flex: 1;
+}
+
+.faculty-detail-course-code {
+  font-size: 0.9rem;
+  color: #666;
+  background-color: #e8e8e8;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.faculty-detail-course-description {
+  color: #555;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.faculty-detail-course-semester {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #666;
+  background-color: #e8f4f8;
+  color: #2c5f7c;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  margin-top: 0.5rem;
+}
+
+/* 논문 섹션 */
+.faculty-detail-papers {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.faculty-detail-paper-item {
+  padding: 1.25rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border-left: 4px solid #2c5f7c;
+}
+
+.faculty-detail-paper-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.5;
+}
+
+.faculty-detail-paper-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.faculty-detail-paper-authors {
+  font-style: italic;
+}
+
+.faculty-detail-paper-journal {
+  font-weight: 500;
+}
+
+.faculty-detail-paper-year {
+  color: #999;
+}
+
+.faculty-detail-paper-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.faculty-detail-paper-link {
+  color: #c8102e;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.faculty-detail-paper-link:hover {
+  color: #a00d26;
+  text-decoration: underline;
+}
+
+/* 조언 섹션 */
+.faculty-detail-advice {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+  border-left: 4px solid #c8102e;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.faculty-detail-advice-content {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1rem;
+  margin: 0;
+  white-space: pre-line;
+}
+
+/* 연구실 소개 */
+.faculty-detail-lab-intro {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.faculty-detail-empty-message {
+  text-align: center;
+  color: #999;
+  font-size: 1rem;
+  padding: 2rem;
+}
+
+/* 댓글 섹션 */
+.faculty-detail-comment-form {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.faculty-detail-comment-input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s;
+}
+
+.faculty-detail-comment-input:focus {
+  outline: none;
+  border-color: #c8102e;
+}
+
+.faculty-detail-comment-input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.faculty-detail-comment-form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faculty-detail-comment-hint {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.faculty-detail-comment-submit {
+  padding: 0.75rem 1.5rem;
+  background-color: #c8102e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.faculty-detail-comment-submit:hover:not(:disabled) {
+  background-color: #a00d26;
+}
+
+.faculty-detail-comment-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 댓글 목록 */
+.faculty-detail-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.faculty-detail-comment {
+  padding: 1.25rem;
+  background-color: #fafafa;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.faculty-detail-comment-header {
+  margin-bottom: 0.75rem;
+}
+
+.faculty-detail-comment-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.faculty-detail-comment-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.faculty-detail-comment-date {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.faculty-detail-comment-content {
+  color: #555;
+  line-height: 1.7;
+  margin: 0 0 1rem 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.faculty-detail-comment-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faculty-detail-comment-like {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  transition: background-color 0.2s;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.faculty-detail-comment-like:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+.faculty-detail-comment-like:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.faculty-detail-comment-like.liked {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.faculty-detail-comment-like.liked:disabled {
+  opacity: 1;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.faculty-detail-comment-like-icon {
+  font-size: 1rem;
+}
+
+.faculty-detail-comment-like-count {
+  font-weight: 500;
+}
+
+.faculty-detail-comments-empty {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #999;
+  font-size: 1rem;
+}
+
+/* 로딩 및 에러 */
+.faculty-detail-loading,
+.faculty-detail-error {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.faculty-detail-error {
+  color: #d32f2f;
+}
+
+.faculty-detail-error button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #c8102e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.faculty-detail-error button:hover {
+  background-color: #a00d26;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .faculty-detail-profile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .faculty-detail-image,
+  .faculty-detail-image-placeholder {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 3/4;
+  }
+
+  .faculty-detail-name {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .faculty-detail-title {
+    text-align: center;
+  }
+
+  .faculty-detail-recruitment-badge {
+    position: static;
+    transform: none;
+    margin-top: 1rem;
+    align-self: center;
+  }
+}
+
