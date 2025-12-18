@@ -54,3 +54,79 @@ export type AdditionalRequirementKey =
   | "English"
   | "SDGs"
   | "GraduationThesisAndCapstone";
+
+// 랩실 관련 타입
+export type DifficultyLevel = "초급" | "중급" | "고급";
+export type TaskStatus = "진행중" | "완료" | "미시작";
+
+export interface ExperienceTask {
+  id: number;
+  title: string;
+  description: string;
+  difficulty: DifficultyLevel;
+  estimatedTime: number; // 예상 소요 시간 (시간 단위)
+  prerequisites?: string[]; // 선수 지식/기술
+  steps: TaskStep[]; // 단계별 가이드
+  resources?: Resource[]; // 참고 자료
+  reviews?: TaskReview[]; // 체험 후기
+  nextSteps?: string[]; // 후속 활동 가이드
+}
+
+export interface TaskStep {
+  stepNumber: number;
+  title: string;
+  description: string;
+  estimatedTime: number; // 예상 소요 시간 (분 단위)
+}
+
+export interface Resource {
+  id: number;
+  title: string;
+  url?: string;
+  type: "문서" | "동영상" | "코드" | "논문" | "기타";
+  description?: string;
+}
+
+export interface TaskReview {
+  id: number;
+  userId: string;
+  rating: number; // 1-5점
+  comment: string;
+  completedDate: string;
+  helpfulCount: number;
+}
+
+export interface Lab {
+  id: number;
+  name: string;
+  professor: string;
+  department: string;
+  researchField: string[]; // 연구 분야
+  description: string;
+  experienceTasks: ExperienceTask[]; // 추천 체험 과제 목록
+  requirements?: LabRequirement; // 랩실 요구사항
+  contact?: LabContact; // 연락처
+}
+
+export interface LabRequirement {
+  preferredSkills?: string[];
+  minGpa?: number;
+  prerequisites?: string[];
+  other?: string;
+}
+
+export interface LabContact {
+  email?: string;
+  office?: string;
+  website?: string;
+}
+
+// 교수진 관련 타입
+export interface Faculty {
+  id: number;
+  name: string;
+  title?: string; // 직책 (예: "정보화본부장")
+  phone?: string;
+  email?: string;
+  imageUrl?: string; // 프로필 이미지 URL
+}
