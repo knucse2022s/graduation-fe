@@ -33,8 +33,11 @@ function Start() {
         ></div>
         <div className="start-content">
           <h1 className="start-title">
-            컴퓨터학부 랩실 
+            KNU-CSE LABS
           </h1>
+          <p className="start-description">
+            컴퓨터학부 학생들과 교수님 사이의 연결
+          </p>
           <button className="start-go-button" onClick={handleGoClick}>
             <span>바로가기</span>
             <svg

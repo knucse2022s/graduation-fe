@@ -55,6 +55,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .faculty-card-image {
@@ -73,6 +74,37 @@
   color: white;
   font-size: 4rem;
   font-weight: bold;
+}
+
+/* 학부연구생 모집 여부 심볼 */
+.faculty-recruitment-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.faculty-recruitment-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: block;
+}
+
+.faculty-recruitment-badge.recruiting .faculty-recruitment-dot {
+  background-color: #4caf50; /* 초록색 */
+}
+
+.faculty-recruitment-badge.not-recruiting .faculty-recruitment-dot {
+  background-color: #f44336; /* 빨간색 */
 }
 
 .faculty-card-content {

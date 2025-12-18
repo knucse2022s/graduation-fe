@@ -130,3 +130,41 @@ export interface Faculty {
   email?: string;
   imageUrl?: string; // 프로필 이미지 URL
 }
+
+export interface Course {
+  id: number;
+  name: string;
+  code?: string; // 과목 코드
+  description?: string;
+  semester?: string; // 학기 정보
+}
+
+export interface Paper {
+  id: number;
+  title: string;
+  authors?: string[];
+  journal?: string;
+  year?: number;
+  url?: string;
+  doi?: string;
+}
+
+export interface FacultyDetail {
+  facultyId: number;
+  courses?: Course[]; // 개설 교과목
+  papers?: Paper[]; // 논문
+  advice?: string; // 이 분야를 오기 위한 조언
+  researchField?: string; // 연구 분야
+  labIntroduction?: string; // 연구실 소개
+}
+
+// 댓글 관련 타입
+export interface Comment {
+  id: number;
+  facultyId: number;
+  content: string;
+  anonymousName: string; // 익명 닉네임 (예: "익명1234")
+  createdAt: string;
+  likeCount: number;
+  isLiked?: boolean; // 현재 사용자가 좋아요를 눌렀는지
+}
