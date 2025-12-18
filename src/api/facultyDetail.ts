@@ -1,6 +1,6 @@
 // 교수 상세 정보 API (Supabase)
 
-import type { FacultyDetail, Course, Paper } from '../component/types';
+import type { FacultyDetail } from '../component/types';
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || 'https://odorutrrkwrcbbonikig.supabase.co';
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9kb3J1dHJya3dyY2Jib25pa2lnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwNzQ0ODEsImV4cCI6MjA4MTY1MDQ4MX0.fCC5mw3_RCHkrvaXfUAx-Qszq-6K5NuR6vANPYozZK8';

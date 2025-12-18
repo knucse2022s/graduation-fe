@@ -32,8 +32,15 @@ export async function getComments(facultyId: number): Promise<Comment[]> {
       throw new Error('댓글을 불러오는데 실패했습니다.');
     }
 
-    const data = await response.json();
-    return data.map((item: any) => ({
+    const data = await response.json() as Array<{
+      id: number;
+      faculty_id: number;
+      content: string;
+      anonymous_name: string;
+      created_at: string;
+      like_count?: number;
+    }>;
+    return data.map((item) => ({
       id: item.id,
       facultyId: item.faculty_id,
       content: item.content,

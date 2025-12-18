@@ -7,7 +7,7 @@ import { getComments, createComment, toggleCommentLike } from "../../api/comment
 import type { Faculty, FacultyDetail, Comment } from "../../component/types";
 import "./FacultyDetail.css";
 
-function FacultyDetail() {
+function FacultyDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [professor, setProfessor] = useState<Faculty | null>(null);
@@ -49,12 +49,6 @@ function FacultyDetail() {
     return getLikedComments().has(commentId);
   };
 
-  useEffect(() => {
-    if (id) {
-      loadProfessorData(parseInt(id));
-    }
-  }, [id]);
-
   const loadProfessorData = async (professorId: number) => {
     try {
       setLoading(true);
@@ -90,6 +84,13 @@ function FacultyDetail() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (id) {
+      loadProfessorData(parseInt(id));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   const handleSubmitComment = async () => {
     if (!commentContent.trim() || !id) {
@@ -423,5 +424,5 @@ function FacultyDetail() {
   );
 }
 
-export default FacultyDetail;
+export default FacultyDetailPage;
 

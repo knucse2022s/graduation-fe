@@ -5,7 +5,6 @@ import {
   updateRecruitmentStatus,
 } from "../../api/recruitment";
 import { getFacultyDetail, updateFacultyDetail } from "../../api/facultyDetail";
-import type { RecruitmentStatus } from "../../api/recruitment";
 import type { FacultyDetail, Course, Paper } from "../../component/types";
 import "./ManagerPage.css";
 
@@ -171,7 +170,7 @@ function ManagerPage() {
     });
   };
 
-  const handleUpdatePaper = (index: number, field: keyof Paper, value: any) => {
+  const handleUpdatePaper = (index: number, field: keyof Paper, value: string | number | string[] | undefined) => {
     if (!facultyDetail || !facultyDetail.papers) return;
     const updatedPapers = [...facultyDetail.papers];
     updatedPapers[index] = { ...updatedPapers[index], [field]: value };

@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchExperienceTask, createTaskReview } from "../../api/lab";
-import type { ExperienceTask, ReviewPayload } from "../../component/types";
+import type { ExperienceTask } from "../../component/types";
+
+interface ReviewPayload {
+  rating: number;
+  comment: string;
+}
 import "./ExperienceTask.css";
 
 function ExperienceTaskPage() {
@@ -153,7 +158,7 @@ function ExperienceTaskPage() {
         <div className="experience-task-section">
           <h2 className="experience-task-section-title">단계별 가이드</h2>
           <div className="experience-task-steps">
-            {task.steps.map((step, index) => (
+            {task.steps.map((step) => (
               <div key={step.stepNumber} className="experience-task-step">
                 <div className="experience-task-step-header">
                   <div className="experience-task-step-number">{step.stepNumber}</div>

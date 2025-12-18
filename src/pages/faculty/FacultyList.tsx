@@ -9,14 +9,13 @@ function FacultyList() {
   const [recruitmentStatuses, setRecruitmentStatuses] = useState<Map<number, boolean>>(new Map());
 
   useEffect(() => {
-    loadRecruitmentStatuses();
+    const loadRecruitmentStatuses = async () => {
+      const facultyIds = facultyData.map((professor) => professor.id);
+      const statuses = await getRecruitmentStatuses(facultyIds);
+      setRecruitmentStatuses(statuses);
+    };
+    void loadRecruitmentStatuses();
   }, []);
-
-  const loadRecruitmentStatuses = async () => {
-    const facultyIds = facultyData.map((professor) => professor.id);
-    const statuses = await getRecruitmentStatuses(facultyIds);
-    setRecruitmentStatuses(statuses);
-  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

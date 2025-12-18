@@ -1,7 +1,7 @@
 import Checker from "./pages/Checker";
 import Start from "./pages/start/Start";
 import FacultyList from "./pages/faculty/FacultyList";
-import FacultyDetail from "./pages/faculty/FacultyDetail";
+import FacultyDetailPage from "./pages/faculty/FacultyDetail";
 import ManagerPage from "./pages/manager/ManagerPage";
 import LabList from "./pages/lab/LabList";
 import LabDetail from "./pages/lab/LabDetail";
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Start />} />
         <Route path="/checker" element={<Checker />} />
         <Route path="/faculty" element={<FacultyList />} />
-        <Route path="/faculty/:id" element={<FacultyDetail />} />
+        <Route path="/faculty/:id" element={<FacultyDetailPage />} />
         <Route path="/manager" element={<ManagerPage />} />
         <Route path="/labs" element={<LabList />} />
         <Route path="/labs/:id" element={<LabDetail />} />
