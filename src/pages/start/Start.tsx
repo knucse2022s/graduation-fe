@@ -21,9 +21,7 @@ function Start() {
           </div>
         </div>
         <nav className="start-header-nav">
-          <a href="#" className="start-nav-link">대학소개</a>
-          <span className="start-nav-divider">|</span>
-          <a href="#" className="start-nav-link">입학</a>
+          <a href="#" className="start-nav-link">문제가 있으신가요?</a>
         </nav>
       </header>
 
