@@ -22,8 +22,90 @@
 .faculty-list-subtitle {
   font-size: 1.1rem;
   color: #666;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   text-align: center;
+}
+
+/* 검색 입력 필드 */
+.faculty-search-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+.faculty-search-input {
+  width: 100%;
+  padding: 1rem 3rem 1rem 1.5rem;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.faculty-search-input:focus {
+  outline: none;
+  border-color: #c8102e;
+  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
+}
+
+.faculty-search-input::placeholder {
+  color: #999;
+}
+
+.faculty-search-clear {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #999;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faculty-search-clear:hover {
+  color: #333;
+}
+
+.faculty-search-result {
+  text-align: center;
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.faculty-search-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #999;
+}
+
+.faculty-search-empty p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.faculty-search-empty-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #c8102e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.faculty-search-empty-button:hover {
+  background-color: #a00d26;
 }
 
 /* 교수진 그리드 */
@@ -216,6 +298,15 @@
 
   .faculty-list-title {
     font-size: 2rem;
+  }
+
+  .faculty-search-container {
+    margin-bottom: 1.5rem;
+  }
+
+  .faculty-search-input {
+    padding: 0.875rem 2.5rem 0.875rem 1.25rem;
+    font-size: 0.95rem;
   }
 
   .faculty-scroll-top {
